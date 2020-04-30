@@ -1,209 +1,164 @@
-import Head from 'next/head'
+import React from 'react'
+import { Grommet, Box, Text, Paragraph, Heading, Button, Grid, Form, FormField, TextInput, Chart, Footer, Anchor  } from 'grommet'
+import AppBar from '../components/grommet/Appbar'
+import { Notification, Edit } from 'grommet-icons';
 
-export default function Home() {
+const theme = {
+  global: {
+    font: {
+      family: 'Roboto',
+      size: '18px',
+      height: '20px',
+    },
+  },
+};
+
+const GrommetHome = () => {
+
   return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
+    <Grommet theme={theme}>
+      <div>
+        <AppBar>
+          <Heading level='2' margin='none'>Holi</Heading>
+          <Button icon={<Notification />} onClick={() => {}} />
+        </AppBar>
+      </div>
+      <div>
+       <Box direction='column' pad='small' flex>
+          <Box 
+            pad='medium'
+            border={{
+              color: 'brand',
+              size: 'small'
+            }}
+            margin={{
+              vertical: 'small'
+            }}
+            fill='horizontal'
+            onClick={() => { console.log('something!') }}
           >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+            <div>
+              <Box
+                margin={{
+                  bottom: "medium",
+                }}
+              >
+                <Text
+                  size="large"
+                >
+                  Titulo Titulo
+                </Text>
+              </Box>
+              <Paragraph>
+                y un poco de lorem ipsum kansdkjqndkjqndkj nqsjkkqjsndjkqnds
+              </Paragraph>
+              <Paragraph>
+                y un poco de lorem ipsum kansdkjqndkjqndkj nqsjkkqjsndjkqnds
+              </Paragraph>
+            </div>
+          </Box>                    
+          {/* <div>
+            <Box
+              pad='small'
+              margin={{
+                vertical: 'small'
+              }}
+              align='center'
+              alignContent='center'
+              direction='row'
+              flex
+            >
+              <Button
+                icon={<Edit />}
+                label="Edit"
+                margin={{ right: 'small' }}
+                onClick={() => {}}
+              />
+              <Button
+                icon={<Edit />}
+                label="Edit"
+                margin={{ right: 'small' }}
+                onClick={() => {}}
+                primary
+              />
+              <Button
+                icon={<Edit />}
+                label="Edit"
+              
+                onClick={() => {}}
+              />
+            </Box>           
+          </div>          */}
+        </Box>
+        
+        <Grid
+          rows={['full']}
+          columns={['2/3', 'flex']}
+          gap="small"
+          pad='small'
+          areas={[              
+            { name: 'nav', start: [0, 0], end: [0, 0] },
+            { name: 'main', start: [1, 0], end: [1, 0] },
+          ]}
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
+          {/* <Box gridArea="header" background="brand" /> */}
+          <Box 
+            gridArea="nav" 
+            pad='medium' 
+            border={{
+              color: 'accent-1',
+              size: 'small'
+            }}
+          >
+            <Form onSubmit={({ value }) => {}}>
+              <FormField name="name" label="Name">
+                <TextInput name="name" />
+              </FormField>
+              <FormField name="name" label="Otro name">
+                <TextInput name="name" />
+              </FormField>
+              <FormField name="name" label="Last name">
+                <TextInput name="name" />
+              </FormField>
+              <Box direction="row" pad={{ top: 'medium' }} gap="medium">
+                <Button type="submit" primary label="Submit" />
+                <Button type="reset" label="Reset" />
+              </Box>
+            </Form>
+          </Box>
+          <Box gridArea="main" flex direction='column' justify='between' pad='medium' background="brand">
+            <div>
+              <Text size="large">
+                Data Falopa
+              </Text>
+            </div>
+            <div>
+            <Chart
+              bounds={[[0, 7], [0, 100]]}
+              values={[
+                { value: [7, 100], label: 'one hundred' },
+                { value: [6, 70], label: 'seventy' },
+                { value: [5, 60], label: 'sixty' },
+                { value: [4, 80], label: 'eighty' },
+                { value: [3, 40], label: 'forty' },
+                { value: [2, 0], label: 'zero' },
+                { value: [1, 30], label: 'thirty' },
+                { value: [0, 60], label: 'sixty' },
+              ]}
+              aria-label="chart"
+            />
+            </div>
+          </Box>
+        </Grid>      
+      </div>
+      <div>
+        <Footer background="brand" pad="medium">
+          <Text>Copyright juancito</Text>
+          <Anchor label="About" />
+        </Footer>
+      </div>
+    </Grommet>    
   )
 }
+
+export default GrommetHome
